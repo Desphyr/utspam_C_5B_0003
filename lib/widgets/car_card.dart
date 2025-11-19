@@ -17,13 +17,15 @@ class CarCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(
-              'assets/images/${car.gambar}',
-              height: 120,
+            SizedBox(
+              height: 120, 
               width: double.infinity,
-              fit: BoxFit.cover,
-              errorBuilder: (context, error, stackTrace) =>
-                  const Icon(Icons.broken_image, size: 100),
+              child: Image.asset(
+                'assets/images/${car.gambar}',
+                fit: BoxFit.cover, 
+                errorBuilder: (context, error, stackTrace) =>
+                    const Icon(Icons.broken_image, size: 100),
+              ),
             ),
             const SizedBox(height: 10),
             Text(
