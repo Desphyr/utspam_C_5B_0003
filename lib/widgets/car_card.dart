@@ -17,7 +17,6 @@ class CarCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Gambar Mobil (asumsi ditaruh di assets/images/)
             Image.asset(
               'assets/images/${car.gambar}',
               height: 120,
