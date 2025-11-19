@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../models/car_model.dart';
-import '../../storage/database_helper.dart';
-import '../../widgets/car_card.dart';
+import '../../../models/car_model.dart';
+import '../../../storage/database_helper.dart';
+import '../../../widgets/car_card.dart';
 import 'car_rent_form_page.dart';
 
 class CarListPage extends StatefulWidget {

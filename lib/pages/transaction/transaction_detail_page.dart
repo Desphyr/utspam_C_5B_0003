@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../storage/database_helper.dart';
-import '../../models/transaction_model.dart';
-import '../../utils/formatters.dart';
+import '../../../storage/database_helper.dart';
+import '../../../models/transaction_model.dart';
+import '../../../utils/formatters.dart';
 import 'edit_transaction_page.dart';
 
 class TransactionDetailPage extends StatefulWidget {

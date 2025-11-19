@@ -1,6 +1,7 @@
+import 'package:car_rent_app/pages/auth/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../auth/login_page.dart';
+import '../../auth/login_page.dart';
 import '../car/car_list_page.dart';
 import '../transaction/transaction_history_page.dart';
 import '../profile/profile_page.dart';
