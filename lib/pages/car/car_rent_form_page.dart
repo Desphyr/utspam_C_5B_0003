@@ -22,7 +22,7 @@ class _CarRentFormPageState extends State<CarRentFormPage> {
   final _formKey = GlobalKey<FormState>();
   final _namaPenyewaController = TextEditingController();
   final _lamaSewaController = TextEditingController();
-  TextEditingController _tanggalMulaiController = TextEditingController();
+  final TextEditingController _tanggalMulaiController = TextEditingController();
   DateTime? _selectedDate;
   int _totalHarga = 0;
   bool _isLoading = false;
@@ -167,7 +167,7 @@ class _CarRentFormPageState extends State<CarRentFormPage> {
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor.withOpacity(0.1),
+                  color: Theme.of(context).primaryColor.withAlpha(26),
                   borderRadius: BorderRadius.circular(8),
                   border: Border.all(color: Theme.of(context).primaryColor),
                 ),
