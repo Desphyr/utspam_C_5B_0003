@@ -51,7 +51,7 @@ class _CarListPageState extends State<CarListPage> {
               crossAxisCount: 2,
               crossAxisSpacing: 12,
               mainAxisSpacing: 12,
-              childAspectRatio: 0.65, 
+              childAspectRatio: 0.60, 
             ),
             itemCount: cars.length,
             itemBuilder: (context, index) {
