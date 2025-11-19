@@ -37,15 +37,15 @@ class _LoginPageState extends State<LoginPage> {
       if (mounted) {
         setState(() => _isLoading = false);
         if (user != null) {
-       
           final prefs = await SharedPreferences.getInstance();
           await prefs.setInt('currentUserId', user.id!);
           await prefs.setString('currentUserName', user.nama);
 
-   
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => const HomePage()),
-          );
+          if (mounted) {
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => const HomePage()),
+            );
+          }
         } else {
           setState(() {
             _errorMessage = 'Username/NIK atau Password salah.';
@@ -58,7 +58,11 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Login CarRentApp', style: TextStyle(color: Colors.black)), backgroundColor: Colors.white, elevation: 0),
+      appBar: AppBar(
+          title: const Text('Login CarRentApp',
+              style: TextStyle(color: Colors.black)),
+          backgroundColor: Colors.white,
+          elevation: 0),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24.0),
         child: Form(
@@ -66,9 +70,9 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              const Text('Selamat Datang Kembali!', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+              const Text('Selamat Datang Kembali!',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
               const SizedBox(height: 30),
-      
               CustomInputField(
                 controller: _loginIdController,
                 label: 'Username atau NIK',
@@ -80,7 +84,6 @@ class _LoginPageState extends State<LoginPage> {
                 },
               ),
               const SizedBox(height: 16),
-            
               CustomInputField(
                 controller: _passwordController,
                 label: 'Password',
@@ -102,17 +105,17 @@ class _LoginPageState extends State<LoginPage> {
                     textAlign: TextAlign.center,
                   ),
                 ),
-              
-              PrimaryButton(text: 'Login', onPressed: _login, isLoading: _isLoading),
+              PrimaryButton(
+                  text: 'Login', onPressed: _login, isLoading: _isLoading),
               const SizedBox(height: 20),
               const Divider(),
-             
               TextButton(
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const RegisterPage()));
                 },
-                child: const Text('Belum punya akun? Daftar Sekarang', style: TextStyle(fontWeight: FontWeight.bold)),
+                child: const Text('Belum punya akun? Daftar Sekarang',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
               ),
             ],
           ),
