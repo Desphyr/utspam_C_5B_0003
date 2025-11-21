@@ -79,12 +79,14 @@ class _RegisterPageState extends State<RegisterPage> {
               CustomInputField(
                 controller: _namaController,
                 label: 'Nama Lengkap',
+                prefixIcon: Icons.person,
                 validator: Validators.required,
               ),
               const SizedBox(height: 16),
               CustomInputField(
                 controller: _nikController,
                 label: 'NIK (16 Digit)',
+                prefixIcon: Icons.perm_identity,
                 keyboardType: TextInputType.number,
                 validator: Validators.validateNik,
               ),
@@ -92,6 +94,7 @@ class _RegisterPageState extends State<RegisterPage> {
               CustomInputField(
                 controller: _emailController,
                 label: 'Email',
+                prefixIcon: Icons.email,
                 keyboardType: TextInputType.emailAddress,
                 validator: Validators.validateEmail,
               ),
@@ -99,6 +102,7 @@ class _RegisterPageState extends State<RegisterPage> {
               CustomInputField(
                 controller: _telpController,
                 label: 'Nomor Telepon',
+                prefixIcon: Icons.phone,
                 keyboardType: TextInputType.phone,
                 validator: Validators.validatePhoneNumber,
               ),
@@ -106,6 +110,7 @@ class _RegisterPageState extends State<RegisterPage> {
               CustomInputField(
                 controller: _alamatController,
                 label: 'Alamat',
+                prefixIcon: Icons.location_on,
                 validator: Validators.required,
               ),
               const SizedBox(height: 24),
@@ -114,6 +119,7 @@ class _RegisterPageState extends State<RegisterPage> {
               CustomInputField(
                 controller: _usernameController,
                 label: 'Username',
+                prefixIcon: Icons.person_outline,
                 validator: Validators.required,
               ),
               const SizedBox(height: 16),
@@ -121,6 +127,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 controller: _passwordController,
                 label: 'Password (min 6 karakter)',
                 isPassword: true,
+                prefixIcon: Icons.lock,
                 validator: Validators.validatePassword,
               ),
               const SizedBox(height: 24),
