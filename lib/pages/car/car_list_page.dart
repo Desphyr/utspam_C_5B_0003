@@ -22,15 +22,22 @@ class _CarListPageState extends State<CarListPage> {
 
   void _navigateToRentForm(CarModel car) {
     Navigator.of(context).push(
-      MaterialPageRoute(
-          builder: (context) => CarRentFormPage(
-                car: car,
-              )),
+      MaterialPageRoute(builder: (context) => CarRentFormPage(car: car)),
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
+    final crossAxisCount = width >= 900
+        ? 3
+        : (width >= 600 ? 3 : 2);
+
+    final double mainAxisExtent = width >= 900
+        ? 420
+        : (width >= 600 ? 380 : 350);
+
     return Scaffold(
       appBar: AppBar(title: const Text('Daftar Mobil Tersedia')),
       body: FutureBuilder<List<CarModel>>(
@@ -45,13 +52,14 @@ class _CarListPageState extends State<CarListPage> {
           }
 
           final cars = snapshot.data!;
+
           return GridView.builder(
             padding: const EdgeInsets.all(12.0),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: crossAxisCount,
               crossAxisSpacing: 12,
               mainAxisSpacing: 12,
-              childAspectRatio: 0.58, 
+              mainAxisExtent: mainAxisExtent,
             ),
             itemCount: cars.length,
             itemBuilder: (context, index) {
