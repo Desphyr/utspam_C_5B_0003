@@ -19,7 +19,7 @@ dependencies:
   shared_preferences: ^2.2.2 # Untuk menyimpan status login (userId)
 
   # Dependensi untuk Formatting (Tanggal, Mata Uang)
-  intl: ^0.18.1          # Untuk formatting tanggal dan harga
+  intl: ^0.20.2          # Untuk formatting tanggal dan harga
 
   # Ikon tambahan
   cupertino_icons: ^1.0.2
@@ -29,7 +29,7 @@ dev_dependencies:
     sdk: flutter
   
   # Linter disarankan
-  flutter_lints: ^3.0.1
+  flutter_lints: ^6.0.0
 
 flutter:
   uses-material-design: true
