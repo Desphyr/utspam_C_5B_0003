@@ -92,6 +92,21 @@ class DatabaseHelper {
           jenisMobil: 'SUV',
           hargaSewa: 800000,
           gambar: 'pajero.png'),
+      CarModel(
+          namaMobil: 'Lamborghini Aventador',
+          jenisMobil: 'Supercar',
+          hargaSewa: 15000000,
+          gambar: 'aventador.png'),
+      CarModel(
+          namaMobil: 'Bugatti Veyron',
+          jenisMobil: 'Hypercar',
+          hargaSewa: 25000000,
+          gambar: 'veyron.png'),
+      CarModel(
+          namaMobil: 'Audi R8', 
+          jenisMobil: 'Sport Car',
+          hargaSewa: 5000000,
+          gambar: 'audir8.png'),
     ];
 
     for (var car in dummyCars) {
