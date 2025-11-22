@@ -113,14 +113,13 @@ class _ProfilePageState extends State<ProfilePage> {
 
                 const SizedBox(height: 20),
 
-                // 🔥 TOMBOL LOGOUT DI SINI
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton.icon(
                     icon: const Icon(Icons.logout),
                     onPressed: _logout,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
+                      backgroundColor: const Color.fromARGB(255, 255, 247, 247),
                       padding: const EdgeInsets.symmetric(vertical: 14),
                     ),
                     label: const Text(
