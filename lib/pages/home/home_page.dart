@@ -38,47 +38,48 @@ class _HomePageState extends State<HomePage> {
         title: Text('Selamat Datang, $_userName!'),
         automaticallyImplyLeading: false,
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            BannerCarousel(imagePaths: banners),
-            const SizedBox(height: 18),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 4.0),
-              child: Text('Keunggulan Kami', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            ),
-            const SizedBox(height: 12),
-            Wrap(
-              spacing: 12,
-              runSpacing: 12,
-              children: [
-                _featureItem(Icons.local_gas_station, 'Bensin Gratis'),
-                _featureItem(Icons.support_agent, 'Layanan 24/7'),
-                _featureItem(Icons.shield, 'Asuransi'),
-                _featureItem(Icons.thumb_up, 'Kondisi Terawat'),
-              ],
-            ),
-            const SizedBox(height: 20),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 4.0),
-              child: Text('Promo', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            ),
-            const SizedBox(height: 12),
-            SizedBox(
-              height: 120,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.fromLTRB(16, 12, 16, 80), // Extra bottom padding
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              BannerCarousel(imagePaths: banners),
+              const SizedBox(height: 18),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 4.0),
+                child: Text('Keunggulan Kami', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              ),
+              const SizedBox(height: 12),
+              Wrap(
+                spacing: 12,
+                runSpacing: 12,
                 children: [
-                  _promoCard('Diskon 20% untuk weekend', Colors.orange),
-                  _promoCard('Gratis antar-jemput bandara', Colors.green),
-                  _promoCard('Potongan khusus member', Colors.blue),
+                  _featureItem(Icons.local_gas_station, 'Bensin Gratis'),
+                  _featureItem(Icons.support_agent, 'Layanan 24/7'),
+                  _featureItem(Icons.shield, 'Asuransi'),
+                  _featureItem(Icons.thumb_up, 'Kondisi Terawat'),
                 ],
               ),
-            ),
-            const SizedBox(height: 24),
-          ],
+              const SizedBox(height: 20),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 4.0),
+                child: Text('Promo', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              ),
+              const SizedBox(height: 12),
+              SizedBox(
+                height: 120,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    _promoCard('Diskon 20% untuk weekend', Colors.orange),
+                    _promoCard('Gratis antar-jemput bandara', Colors.green),
+                    _promoCard('Potongan khusus member', Colors.blue),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
