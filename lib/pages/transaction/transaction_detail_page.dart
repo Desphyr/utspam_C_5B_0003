@@ -3,6 +3,7 @@ import '../../../storage/database_helper.dart';
 import '../../../models/transaction_model.dart';
 import '../../../utils/formatters.dart';
 import 'edit_transaction_page.dart';
+import '../../../utils/notifications.dart';
 
 class TransactionDetailPage extends StatefulWidget {
   final int transactionId;
@@ -47,8 +48,7 @@ class _TransactionDetailPageState extends State<TransactionDetailPage> {
       
       await DatabaseHelper().updateTransaction(TransactionModel.fromMap(updatedTr));
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Penyewaan berhasil dibatalkan.')));
+        showAppNotification(context, 'Penyewaan berhasil dibatalkan.', type: NotificationType.success);
       }
       _loadDetail(); // Refresh halaman
     }

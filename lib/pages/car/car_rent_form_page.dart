@@ -9,6 +9,7 @@ import '../../../utils/formatters.dart';
 import '../../../widgets/custom_input_field.dart';
 import '../../../widgets/primary_button.dart';
 import '../main_navigation.dart';
+import '../../../utils/notifications.dart';
 
 class CarRentFormPage extends StatefulWidget {
   final CarModel car;
@@ -67,8 +68,7 @@ class _CarRentFormPageState extends State<CarRentFormPage> {
   Future<void> _submitRental() async {
     if (_formKey.currentState!.validate()) {
       if (_selectedDate == null) {
-        ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Tanggal mulai sewa wajib diisi.')));
+        showAppNotification(context, 'Tanggal mulai sewa wajib diisi.', type: NotificationType.error);
         return;
       }
 
@@ -92,9 +92,7 @@ class _CarRentFormPageState extends State<CarRentFormPage> {
       await DatabaseHelper().insertTransaction(newTransaction);
 
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Penyewaan berhasil disimpan!')),
-        );
+        showAppNotification(context, 'Penyewaan berhasil disimpan!', type: NotificationType.success);
 
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => const MainNavigation(initialIndex: 2)),

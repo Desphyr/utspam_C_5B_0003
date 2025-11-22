@@ -5,6 +5,7 @@ import '../../utils/validators.dart';
 import '../../widgets/custom_input_field.dart';
 import '../../widgets/primary_button.dart';
 import 'login_page.dart';
+import '../../utils/notifications.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -42,21 +43,14 @@ class _RegisterPageState extends State<RegisterPage> {
         await DatabaseHelper().insertUser(newUser);
 
         if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-                content: Text('Registrasi berhasil! Silakan login.')),
-          );
+          showAppNotification(context, 'Registrasi berhasil! Silakan login.', type: NotificationType.success);
           Navigator.of(context).pushReplacement(
               MaterialPageRoute(builder: (context) => const LoginPage()));
         }
       } catch (e) {
         // Penanganan error (misal: NIK/Username sudah ada)
         if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-                content:
-                    Text('Registrasi gagal. Username atau NIK mungkin sudah terdaftar. Error: $e')),
-          );
+          showAppNotification(context, 'Registrasi gagal. Username atau NIK mungkin sudah terdaftar. Error: $e', type: NotificationType.error, duration: const Duration(seconds: 4));
         }
       } finally {
         if (mounted) {

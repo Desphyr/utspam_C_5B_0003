@@ -6,6 +6,7 @@ import '../../../utils/validators.dart';
 import '../../../utils/formatters.dart';
 import '../../../widgets/custom_input_field.dart';
 import '../../../widgets/primary_button.dart';
+import '../../../utils/notifications.dart';
 
 class EditTransactionPage extends StatefulWidget {
   final TransactionModel initialData;
@@ -84,8 +85,7 @@ class _EditTransactionPageState extends State<EditTransactionPage> {
   Future<void> _updateRental() async {
     if (_formKey.currentState!.validate()) {
       if (_selectedDate == null) {
-        ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Tanggal mulai sewa wajib diisi.')));
+        showAppNotification(context, 'Tanggal mulai sewa wajib diisi.', type: NotificationType.error);
         return;
       }
       
@@ -106,11 +106,9 @@ class _EditTransactionPageState extends State<EditTransactionPage> {
       await DatabaseHelper().updateTransaction(updatedTransaction);
       
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Penyewaan berhasil diperbarui!')),
-        );
+        showAppNotification(context, 'Penyewaan berhasil diperbarui!', type: NotificationType.success);
         // Kembali ke Halaman Detail dengan data baru
-        Navigator.pop(context, true); 
+        Navigator.pop(context, true);
       }
     }
     if (mounted) {
