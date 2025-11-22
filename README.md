@@ -9,3 +9,5 @@ Proyek ini dibuat untuk memenuhi kriteria penilaian pada ujian tengah semester.
 Untuk bukti dokumentasi mengenai tugas ini, dapat melihat video presentasi melalui tautan berikut:
 
 👉 **Video Record Tugas:** https://drive.google.com/file/d/1eQkFWMnopkvHMA8fkQXpViWLElUQtcga/view?usp=drivesdk
+
+👉 **Kumpulan Screenshot:** https://drive.google.com/drive/folders/1UFGaxZPs04PKAmQ8sZELx1M9Y90PmMhj?usp=drive_link
