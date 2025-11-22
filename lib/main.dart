@@ -20,7 +20,8 @@ class CarRentApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         appBarTheme: const AppBarTheme(
-          elevation: 0,
+          elevation: 4,
+          backgroundColor: Colors.blue,
           titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
           iconTheme: IconThemeData(color: Colors.white),
         ),

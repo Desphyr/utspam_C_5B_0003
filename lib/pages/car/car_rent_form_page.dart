@@ -109,7 +109,12 @@ class _CarRentFormPageState extends State<CarRentFormPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Sewa ${widget.car.namaMobil}')),
+      appBar: AppBar(
+        title: Text('Sewa ${widget.car.namaMobil}'),
+        backgroundColor: Theme.of(context).primaryColor,
+        iconTheme: const IconThemeData(color: Colors.white),
+        elevation: 2,
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24.0),
         child: Form(

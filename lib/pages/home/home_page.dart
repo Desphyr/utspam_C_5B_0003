@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(16, 12, 16, 80), // Extra bottom padding
+          padding: const EdgeInsets.fromLTRB(16, 12, 16, 80), 
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
