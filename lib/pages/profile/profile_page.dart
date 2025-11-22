@@ -1,6 +1,9 @@
+import 'package:car_rent_app/pages/auth/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../storage/database_helper.dart';
 import '../../../models/user_model.dart';
+
 
 class ProfilePage extends StatefulWidget {
   final int userId;
@@ -17,6 +20,19 @@ class _ProfilePageState extends State<ProfilePage> {
   void initState() {
     super.initState();
     _userFuture = DatabaseHelper().getUserById(widget.userId);
+  }
+
+  Future<void> _logout() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('currentUserId');
+    await prefs.remove('currentUserName');
+
+    if (mounted) {
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => const LoginPage()),
+        (Route<dynamic> route) => false,
+      );
+    }
   }
 
   Widget _buildProfileRow(String label, String value) {
@@ -53,35 +69,67 @@ class _ProfilePageState extends State<ProfilePage> {
           }
 
           final user = snapshot.data!;
+
           return SingleChildScrollView(
             padding: const EdgeInsets.all(24.0),
-            child: Card(
-              elevation: 4,
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Center(
-                      child: Icon(Icons.account_circle, size: 80, color: Colors.blue),
+            child: Column(
+              children: [
+                Card(
+                  elevation: 4,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Center(
+                          child: Icon(Icons.account_circle,
+                              size: 80, color: Colors.blue),
+                        ),
+                        const Divider(height: 30),
+                        Text('Data Diri',
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).primaryColor)),
+                        const SizedBox(height: 10),
+                        _buildProfileRow('Nama', user.nama),
+                        _buildProfileRow('NIK', user.nik),
+                        _buildProfileRow('Email', user.email),
+                        _buildProfileRow('Telepon', user.telp),
+                        _buildProfileRow('Alamat', user.alamat),
+                        const Divider(height: 30),
+                        Text('Data Akun',
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).primaryColor)),
+                        const SizedBox(height: 10),
+                        _buildProfileRow('Username', user.username),
+                        _buildProfileRow('Password', '********'),
+                      ],
                     ),
-                    const Divider(height: 30),
-                    Text('Data Diri', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Theme.of(context).primaryColor)),
-                    const SizedBox(height: 10),
-                    _buildProfileRow('Nama', user.nama),
-                    _buildProfileRow('NIK', user.nik),
-                    _buildProfileRow('Email', user.email),
-                    _buildProfileRow('Telepon', user.telp),
-                    _buildProfileRow('Alamat', user.alamat),
-                    
-                    const Divider(height: 30),
-                    Text('Data Akun', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Theme.of(context).primaryColor)),
-                    const SizedBox(height: 10),
-                    _buildProfileRow('Username', user.username),
-                    _buildProfileRow('Password', '********'), // Jangan tampilkan password asli
-                  ],
+                  ),
                 ),
-              ),
+
+                const SizedBox(height: 20),
+
+                // 🔥 TOMBOL LOGOUT DI SINI
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton.icon(
+                    icon: const Icon(Icons.logout),
+                    onPressed: _logout,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                    ),
+                    label: const Text(
+                      'Logout',
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+              ],
             ),
           );
         },

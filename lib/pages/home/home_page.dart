@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:car_rent_app/pages/auth/login_page.dart';
 import 'package:car_rent_app/pages/car/car_list_page.dart';
 import 'package:car_rent_app/pages/transaction/transaction_history_page.dart';
 import 'package:car_rent_app/pages/profile/profile_page.dart';
@@ -30,19 +29,6 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  Future<void> _logout() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.remove('currentUserId');
-    await prefs.remove('currentUserName');
-
-    if (mounted) {
-      Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (context) => const LoginPage()),
-        (Route<dynamic> route) => false,
-      );
-    }
-  }
-
   void _navigateTo(Widget page) {
     Navigator.of(context).push(MaterialPageRoute(builder: (context) => page));
   }
@@ -51,9 +37,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Selamat Datang, $_userName!', style: const TextStyle(color: Colors.white)),
+        title: Text(
+          'Selamat Datang, $_userName!',
+          style: const TextStyle(color: Colors.white),
+        ),
         backgroundColor: Theme.of(context).primaryColor,
-        automaticallyImplyLeading: false, // Hilangkan tombol back
+        automaticallyImplyLeading: false,
       ),
       body: GridView.count(
         crossAxisCount: 2,
@@ -80,11 +69,6 @@ class _HomePageState extends State<HomePage> {
               }
             },
           ),
-          _buildMenuItem(
-            icon: Icons.logout,
-            title: 'Logout',
-            onTap: _logout,
-          ),
         ],
       ),
     );
@@ -107,9 +91,11 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Text(title,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+              child: Text(
+                title,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+              ),
             ),
           ],
         ),
