@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:car_rent_app/storage/database_helper.dart';
 import 'package:car_rent_app/models/user_model.dart';
-import 'package:car_rent_app/pages/home/home_page.dart';
+import '../main_navigation.dart';
 import 'package:car_rent_app/pages/auth/register_page.dart';
 import 'package:car_rent_app/widgets/custom_input_field.dart';
 import 'package:car_rent_app/widgets/primary_button.dart';
@@ -45,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
 
         if (mounted) {
           Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => const HomePage()),
+            MaterialPageRoute(builder: (context) => const MainNavigation()),
           );
         }
       } else {

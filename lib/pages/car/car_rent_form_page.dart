@@ -8,7 +8,7 @@ import '../../../utils/validators.dart';
 import '../../../utils/formatters.dart';
 import '../../../widgets/custom_input_field.dart';
 import '../../../widgets/primary_button.dart';
-import '../transaction/transaction_history_page.dart';
+import '../main_navigation.dart';
 
 class CarRentFormPage extends StatefulWidget {
   final CarModel car;
@@ -97,8 +97,7 @@ class _CarRentFormPageState extends State<CarRentFormPage> {
         );
 
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(
-              builder: (context) => TransactionHistoryPage(userId: userId)),
+          MaterialPageRoute(builder: (context) => const MainNavigation(initialIndex: 2)),
         );
       }
     }
