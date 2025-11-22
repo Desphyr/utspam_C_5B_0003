@@ -1,16 +1,11 @@
-# car_rent_app
+# Ujian Tengah Semester
 
-A new Flutter project.
+Repositori ini berisi hasil pengerjaan tugas ujian tengah semester pada mata kuliah pemrograman aplikasi mobile.
 
-## Getting Started
+## 📌 Deskripsi Singkat
+Proyek ini dibuat untuk memenuhi kriteria penilaian pada ujian tengah semester.
 
-This project is a starting point for a Flutter application.
+## 🎥 Dokumentasi Video
+Untuk bukti dokumentasi mengenai tugas ini, dapat melihat video presentasi melalui tautan berikut:
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+👉 **Video Record Tugas:** https://drive.google.com/file/d/1eQkFWMnopkvHMA8fkQXpViWLElUQtcga/view?usp=drivesdk
